@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans Medium", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F6F1F0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  text-decoration: none;
+}
+label {
+  font-weight: 600;
+  font-size: 14px;
+}
+h1 {
+  font-weight: 600;
+}
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "react-credit-cards/es/styles-compiled.css";

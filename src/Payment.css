@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&display=swap");
+.payment_main {
+  padding: 20px;
+}
+.payment_main img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.payment_card_form {
+  width: 100%;
+}
+.payment_card input {
+  margin-top: 5px;
+  width: 100%;
+}
+.payment_card label {
+  font-weight: 600;
+  margin-top: 20px;
+}
+.payment_card input {
+  margin-top: 20px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+:focus {
+  border: none;
+  outline: none;
+}

@@ -1,0 +1,16 @@
+.footer_sec {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_sec img {
+  width: 120px;
+  margin-left: -25px;
+}
+.footer_sec p {
+  margin-top: -20px;
+  text-align: center;
+  color: #021c45;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+}
