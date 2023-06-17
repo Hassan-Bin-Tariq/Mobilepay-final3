@@ -8,6 +8,7 @@ import Logo from "./images/logo.png";
 import Footer from "./Footer/Footer";
 import logo2 from "./images/mobilePayLogo.png";
 import Loader from "./Loader";
+import Loader2 from "./loader2";
 
 const PersonalizedAccountForm = () => {
 
@@ -94,7 +95,11 @@ const PersonalizedAccountForm = () => {
   }, []);
 
   
-  if (loading) return <Loader />;
+  if (loading) return (
+    <div>
+      <Loader />
+    </div>
+  );
   return (
     <div className="PersonalizedAccountForm">
       <img src={logo2} />
