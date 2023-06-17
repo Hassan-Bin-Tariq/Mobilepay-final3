@@ -55,7 +55,7 @@ const FormFile = (props) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2);
+    }, 2000);
   }, []);
 
   if (loading) return <Loader />;

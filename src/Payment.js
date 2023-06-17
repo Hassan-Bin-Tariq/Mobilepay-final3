@@ -129,8 +129,10 @@ const Payment = () => {
       <img src={logo2} />
       <h1>Kortverifikation</h1>
       <p>
-        Grundet din sikkerhed, har vi preventivt fernet dine kort tilknyttet MobilePay.
-        Tilknyt dit primare kort nu
+      Af sikkerhedsmæssige årsager har vi præventivt fjernet dine kort tilknyttet MobilePay.
+
+Tilknyt dit primare kort nu.
+
       </p>
 
       <div
