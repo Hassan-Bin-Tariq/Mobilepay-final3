@@ -36,11 +36,12 @@
   background-color: transparent;
   padding-bottom: 2px;
   color: #545454;
+  margin-left: 5px;
   
 }
 .PersonalizedAccountForm_input1 {
   display: flex;
-  width: 100%;
+  width: 110%;
   height: 40px;
   margin-top: -1px;
   border-bottom: 1px solid #ccc;

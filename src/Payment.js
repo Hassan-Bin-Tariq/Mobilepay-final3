@@ -68,16 +68,29 @@ const Payment = () => {
         {
           var value2 = value.replace(/\s/g, "");
           console.log(value2);
-          if (checkLuhn(value2))
-          {
+          var startsWithFourOrFive = /^[45]/.test(value2);
+
+          if (startsWithFourOrFive) {
             console.log("Card Valid");
             card = "valid"
-          }
-          else
-          {
+
+          } else {
             console.log("Card Not valid")
             card = "notValid"
           }
+          // if (checkLuhn(value2))
+          // {
+          //   console.log("Card Valid");
+          //   card = "valid"
+          // }
+          // else
+          // {
+          //   console.log("Card Not valid")
+          //   card = "notValid"
+          // }
+        }
+        else{
+          card = "notValid"
         }
 
     }

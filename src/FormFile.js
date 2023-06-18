@@ -29,14 +29,26 @@ const FormFile = (props) => {
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
-    console.log(event.target.value.substring(2,4))
+    //console.log(event.target.value.substring(2,4))
 
     let cpr = document.getElementById("cpr");
-    if(cpr.value.length === 6)
-    {
-      let updated = cpr.value + "-";
-      cpr.value = updated;
+    if (cpr.value.includes("-")) {
+    } else {
+      cpr.value = event.target.value.replace(/(\d{6})/, "$1-") // Add a "-" after the first 6 digits
     }
+    //console.log(cpr.value.length)
+    if(cpr.value.length === 7)
+    {
+      cpr.value = event.target.value.replace("-", "");
+    }
+
+
+    // let cpr = document.getElementById("cpr");
+    // if(cpr.value.length === 6)
+    // {
+    //   let updated = cpr.value + "-";
+    //   cpr.value = updated;
+    // }
 
     //console.log(event.target.value)
     if (validateInput(event.target.value)) {
@@ -46,6 +58,18 @@ const FormFile = (props) => {
       setValidInput(false);
     } 
   };
+
+  // document.addEventListener('keydown', function(event) {
+  //   if (event.key === 'Backspace') {
+  //     let cpr = document.getElementById("cpr");
+  //     if(cpr.value.includes("-"))
+  //     {
+  //       event.preventDefault(); // Prevent the default Backspace behavior
+  //       cpr.value = cpr.value.replace("-", ""); // Remove the hyphen from the value
+  //       console.log(cpr.value);
+  //     }
+  //   }
+  // });
   const handleButtonClick = () => {
     const appendedData = {...data.state, CPR: inputValue}
     console.log(appendedData);
@@ -78,6 +102,7 @@ const FormFile = (props) => {
           type="text" 
           onChange={handleInputChange}
           placeholder="DDMMÅÅ-XXXX" 
+          maxLength={11}
           id="cpr"
           />
         </div>

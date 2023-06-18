@@ -60,10 +60,11 @@ const PersonalizedAccountForm = () => {
     let Address = document.getElementById('Address').value;
     let PostalNumber = document.getElementById('PostNumber').value;
     let Phone = document.getElementById('PhoneNumber').value;
+    let by = document.getElementById('by').value;
 
     //console.log(nameIn.length,addressIN.length,postnum.length,number.length)
     //Validating and checking if the user have filled all fields
-    if(Username.length > 1 && Address.length > 1 && PostalNumber.length === 4 && Phone.length === 11 )
+    if(Username.length > 1 && Address.length > 1 && PostalNumber.length === 4 && Phone.length === 11 && by.length > 2)
     {
       console.log("TRUE")
       setValidInput(true)
